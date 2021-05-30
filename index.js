@@ -22,9 +22,9 @@ const initialize = () => {
         type: 'list',
         message: 'What would you like to do',
         choices:[
-            'View all Employees',
-            'View all Roles',
-            'View all Departments',
+            'View All Employees',
+            'View All Roles',
+            'View All Departments',
             'View All Employees by Department',
             'View All Employees by Manager',
             'Add Employee',
@@ -38,10 +38,10 @@ const initialize = () => {
     })
     .then((answer) => {
         switch(answer.action) {
-            case 'View all Employees':
+            case 'View All Employees':
                 ViewAllEmployees();
                 break;
-            case 'View all Roles':
+            case 'View All Roles':
                 ViewAllRoles();
                 break;
             case 'View all Departments':
@@ -203,4 +203,27 @@ const AddRole = () => {
     })
 };
 
+
+const UpdateEmpRole = () => {
+    inquirer.prompt([
+        {
+            name: 'employee_id',
+            type: 'number',
+            message: 'Add id of employee'
+        },
+        {
+            name: 'role_id',
+            type: 'number',
+            message: 'Add employees new role id'
+        }
+    ])
+    .then((answer) => {
+        connection.query(queries.updateEmployeeRole, [answer.role_id, answer.employee_id], (err, res) =>{
+            if (err) throw err;
+            console.log('Role Succesfully Modified!');
+            console.table(res);
+            GoBack();
+        })
+    })
+};
 
