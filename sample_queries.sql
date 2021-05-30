@@ -20,6 +20,12 @@ VALUES (?, ?, ?);
 INSERT INTO employee (first_name, last_name, role_id)
 VALUES (?, ?, ?);
 
+-- UPDATE EMPLOYEE ROLES
+UPDATE employee
+SET role_id = ?
+WHERE employee_id = ?;
+
+-- -------- ADDITIONAL FUNCTIONALITY -----------
 -- DELETE DEPARTMENT
 DELETE FROM department WHERE name = ?;
 
@@ -29,7 +35,3 @@ DELETE FROM roles WHERE role = ?;
 -- DELETE EMPLOYEES
 DELETE FROM employees WHERE (first_name = ? OR last_name = ? OR CONCAT(first_name, " " last_name) = ? OR employee_id = ?)
 
--- UPDATE EMPLOYEE ROLES
-UPDATE employees
-SET role_id = ?
-WHERE employee_id = ?
