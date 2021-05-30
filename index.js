@@ -117,7 +117,7 @@ const ViewAllEmployees = () => {
 };
 
 const ViewAllRoles = () => {
-    connection.query(queries.viewAllEmployees, (err, res) => {
+    connection.query(queries.viewRole, (err, res) => {
         if (err) throw err;
         console.table(res);
         GoBack();
@@ -125,7 +125,7 @@ const ViewAllRoles = () => {
 };
 
 const ViewAllDepartments = () => {
-    connection.query(queries.viewAllEmployees, (err, res) => {
+    connection.query(queries.viewDepartment, (err, res) => {
         if (err) throw err;
         console.table(res);
         GoBack();
