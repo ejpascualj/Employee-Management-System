@@ -44,7 +44,7 @@ const initialize = () => {
             case 'View All Roles':
                 ViewAllRoles();
                 break;
-            case 'View all Departments':
+            case 'View All Departments':
                 ViewAllDepartments();
                 break;
             case 'View All Employees by Department':
@@ -127,7 +127,16 @@ const ViewAllRoles = () => {
 const ViewAllDepartments = () => {
     connection.query(queries.viewDepartment, (err, res) => {
         if (err) throw err;
-        console.table(res);
+        // const obj = JSON.parse(res);
+        const array = JSON.parse(JSON.stringify(res));
+        console.log(array)
+        const array2 = [];
+        for(i=0; i<array.length; i++){
+            array2.push(array[i].name);
+        };
+        console.log(array2);
+        // console.log(res);
+        // console.table(res);
         GoBack();
     })
 };
@@ -227,3 +236,50 @@ const UpdateEmpRole = () => {
     })
 };
 
+const UpdateEmpMgr = () => {
+    inquirer.prompt([
+        {
+            name: 'employee_id',
+            type: 'number',
+            message: 'Add id of employee'
+        },
+        {
+            name: 'manager_id',
+            type: 'number',
+            message: 'Add new manager id'
+        }
+    ])
+    .then((answer) => {
+        connection.query(queries.updateEmployeeMgr, [answer.role_id, answer.employee_id], (err, res) =>{
+            if (err) throw err;
+            console.log('Manager Succesfully Modified!');
+            console.table(res);
+            GoBack();
+        })
+    })
+};
+
+/* const SelectDepartment = () => {
+    const array = [];
+    connection.query(queries.viewDepartment, (err, res) => {
+        if (err) throw err;
+        array = JSON.parse(JSON.stringify(res));
+        const array2 = [];
+        for(i=0; i<array.length; i++){
+            array2.push(array[i].name);
+        };
+        return array2
+    })
+};
+
+const SelectRole = () => {
+    connection.query(queries.viewRole, (err, res) => {
+        if (err) throw err;
+        const array = JSON.parse(JSON.stringify(res));
+        const array2 = [];
+        for(i=0; i<array.length; i++){
+            array2.push(array[i].title);
+        };
+        return array2
+    })
+};*/
