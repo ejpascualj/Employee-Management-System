@@ -6,7 +6,7 @@
 
 ### GitHub Repository
 
-https://github.com/ejpascualj/note-taker
+https://github.com/ejpascualj/Employee-Management-System
 
 
 ## Application Demo
