@@ -86,12 +86,12 @@ const GoBack = () => {
                 initialize();
                 break;
             case 'EXIT':
-                console.log('Good Bye!');
                 connection.end();
+                console.log('Good Bye!');
                 break;
-            default:
-                console.log(`Invalid action: ${answer.action}`);
-                break;                         
+            // default:
+            //     console.log(`Invalid action: ${answer.action}`);
+            //     break;                         
         }
     })
 };
@@ -166,7 +166,6 @@ const AddDepartment = () => {
             if (err) throw err;
             console.log('New Department Succesfully Added!');
             ViewAllDepartments();
-            GoBack();
         })
     })
 };
@@ -194,7 +193,6 @@ const AddRole = () => {
             if (err) throw err;
             console.log('Role Succesfully Added!');
             ViewAllRoles();
-            GoBack();
         })
     })
 };
@@ -218,7 +216,6 @@ const UpdateEmpRole = () => {
             if (err) throw err;
             console.log('Role Succesfully Modified!');
             ViewAllEmployees();
-            GoBack();
         })
     })
 };
@@ -241,7 +238,6 @@ const UpdateEmpMgr = () => {
             if (err) throw err;
             console.log('Manager Succesfully Modified!');
             ViewAllEmployees();
-            GoBack();
         })
     })
 };
