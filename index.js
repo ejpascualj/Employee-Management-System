@@ -128,15 +128,14 @@ const ViewAllDepartments = () => {
     connection.query(queries.viewDepartment, (err, res) => {
         if (err) throw err;
         // const obj = JSON.parse(res);
-        const array = JSON.parse(JSON.stringify(res));
-        console.log(array)
-        const array2 = [];
-        for(i=0; i<array.length; i++){
-            array2.push(array[i].name);
-        };
-        console.log(array2);
-        // console.log(res);
-        // console.table(res);
+        // const array = JSON.parse(JSON.stringify(res));
+        // const array2 = [];
+        // for(i=0; i<array.length; i++){
+        //     array2.push(array[i].name);
+        // };
+        // console.table(array2);
+        // // console.log(res);
+        console.table(res);
         GoBack();
     })
 };
@@ -230,7 +229,7 @@ const UpdateEmpRole = () => {
         connection.query(queries.updateEmployeeRole, [answer.role_id, answer.employee_id], (err, res) =>{
             if (err) throw err;
             console.log('Role Succesfully Modified!');
-            console.table(res);
+            ViewAllEmployees();
             GoBack();
         })
     })
@@ -253,7 +252,7 @@ const UpdateEmpMgr = () => {
         connection.query(queries.updateEmployeeMgr, [answer.role_id, answer.employee_id], (err, res) =>{
             if (err) throw err;
             console.log('Manager Succesfully Modified!');
-            console.table(res);
+            ViewAllEmployees();
             GoBack();
         })
     })

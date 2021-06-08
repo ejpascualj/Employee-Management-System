@@ -12,6 +12,8 @@ const createEmployee = 'INSERT INTO employee (first_name, last_name, role_id) VA
 
 const updateEmployeeRole = 'UPDATE employee SET role_id = ? WHERE employee_id = ?;';
 
+const updateEmployeeMgr = 'UPDATE employee SET manager_id = ? WHERE employee_id = ?;';
+
 exports.viewAllEmployees = viewAllEmployees;
 exports.viewDepartment = viewDepartment;
 exports.viewRole = viewRole;
@@ -19,3 +21,4 @@ exports.createDepartment = createDepartment;
 exports.createRole = createRole;
 exports.createEmployee = createEmployee;
 exports.updateEmployeeRole = updateEmployeeRole;
+exports.updateEmployeeMgr = updateEmployeeMgr;
