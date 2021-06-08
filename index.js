@@ -234,7 +234,7 @@ const UpdateEmpMgr = () => {
         }
     ])
     .then((answer) => {
-        connection.query(queries.updateEmployeeMgr, [answer.role_id, answer.employee_id], (err, res) =>{
+        connection.query(queries.updateEmployeeMgr, [answer.manager_id, answer.employee_id], (err, res) =>{
             if (err) throw err;
             console.log('Manager Succesfully Modified!');
             ViewAllEmployees();
