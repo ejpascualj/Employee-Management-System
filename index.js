@@ -25,12 +25,9 @@ const initialize = () => {
             'View All Employees',
             'View All Roles',
             'View All Departments',
-            'View All Employees by Department',
-            'View All Employees by Manager',
             'Add Employee',
             'Add Department',
             'Add Role',
-            'Remove Employee',
             'Update Employee Role',
             'Update Employee Manager',
             'EXIT'
@@ -47,12 +44,6 @@ const initialize = () => {
             case 'View All Departments':
                 ViewAllDepartments();
                 break;
-            case 'View All Employees by Department':
-                ViewEmpByDept();
-                break;
-            case 'View All Employees by Manager':
-                ViewEmpByMgr();
-                break;
             case 'Add Employee':
                 AddEmployee();
                 break;
@@ -61,9 +52,6 @@ const initialize = () => {
                 break;
             case 'Add Role':
                 AddRole();
-                break;
-            case 'Remove Employee':
-                RemoveEmployee()
                 break;
             case 'Update Employee Role':
                 UpdateEmpRole();
@@ -257,28 +245,3 @@ const UpdateEmpMgr = () => {
         })
     })
 };
-
-/* const SelectDepartment = () => {
-    const array = [];
-    connection.query(queries.viewDepartment, (err, res) => {
-        if (err) throw err;
-        array = JSON.parse(JSON.stringify(res));
-        const array2 = [];
-        for(i=0; i<array.length; i++){
-            array2.push(array[i].name);
-        };
-        return array2
-    })
-};
-
-const SelectRole = () => {
-    connection.query(queries.viewRole, (err, res) => {
-        if (err) throw err;
-        const array = JSON.parse(JSON.stringify(res));
-        const array2 = [];
-        for(i=0; i<array.length; i++){
-            array2.push(array[i].title);
-        };
-        return array2
-    })
-};*/
